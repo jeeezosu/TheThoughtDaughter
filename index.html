@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Thought Daughter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fef6f8;
+      color: #444;
+    }
+    header {
+      background-color: #ffb6c1;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      margin-top: 0;
+      font-size: 2.5rem;
+      color: #fff;
+    }
+    nav {
+      background-color: #fff;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #ff69b4;
+      font-weight: bold;
+    }
+    nav a:hover{
+      color: #832654;
+    }
+    section {
+      position: relative;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    section h2 {
+      margin-top: 0;
+      color: #ff69b4;
+    }
+    .section-image {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+    .section-image:hover{
+      transform: scale(2.5);
+    }
+    .gallery {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      animation: girly-pop 0.5s ease-out;
+      width: 70%;
+      max-width: 1000px;
+      text-align: center;
+    }
+    
+    .gallery img {
+      width: 160px;
+      height: 160px;
+      margin: 10px;
+      border-radius: 10px;
+      object-fit: cover;
+      display: inline-block;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .gallery img:hover{
+      transform: scale(1.2);
+    }
+    
+    .gallery .close-btn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 15px 30px;
+      background-color: #ff69b4;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    
+    .gallery .close-btn:hover {
+      background-color: #832654;
+      transition: 0.2s ease-in-out;
+    }
+    
+    @keyframes girly-pop {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -60%) scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #ffb6c1;
+      color: white;
+      margin-top: 20px;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    #connect a{
+      text-decoration: none;
+      color: #ff69b4;
+    }
+    #connect a:hover{
+      color: #832654;
+    }
+
+    .section-hidden {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .section-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Thought Daughter</h1>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#education">Education</a>
+    <a href="#goals">Goals</a>
+    <a href="#skills">Skills</a>
+    <a href="#connect">Connect</a>
+  </nav>
+
+  <section id="home">
+    <img src="1.jpg" alt="Home Image" class="section-image">
+    <h2>Welcome to My Space!</h2>
+    <p><strong>Name:</strong> Jared Jade C. Abaya</p>
+    <p><strong>Age:</strong> 17 (Born: December 23, 2006)</p>
+    <p><strong>From:</strong> San Juan, Candon City, Ilocos Sur</p>
+    <p>Hi! I’m Jade—a student, writer, and dreamer. I’m passionate about creativity and leadership, always trying to grow and learn. Living on my own since 15 has been an adventure, shaping me into someone independent, thoughtful, and a little quirky (in the best way).</p>
+  </section>
+
+  <section id="about">
+    <img src="2.jpg" alt="About Me Image" class="section-image" onclick="openGallery()">
+    <h2>About Me</h2>
+    <p><strong>Family Story:</strong> I grew up with my mom, siblings, and grandma after my dad passed away.<br>Living alone at 15 in our hometown while my siblings studied far away taught me independence.</p>
+    <p><strong>Hobbies & Interests:</strong></p>
+    <ul>
+      <li>Writing: Editor-in-Chief of <em>The SJI-an Ink</em></li>
+      <li>Music: Ukulele, guitar, and violin</li>
+      <li>Movies & Series: Movie nights are my escape</li>
+      <li>Walks & Music: Taylor Swift is my soundtrack</li>
+    </ul>
+    <p><strong>Life Lessons:</strong> Heartbreaks and challenges helped me embrace solitude and resilience.</p>
+  </section>
+
+  <div class="gallery" id="gallery">
+    <img src="2.jpg" alt="Gallery Image 1">
+    <img src="3.jpg" alt="Gallery Image 2">
+    <img src="4.jpg" alt="Gallery Image 3">
+    <img src="5.jpg" alt="Gallery Image 4">
+    <img src="6.jpg" alt="Gallery Image 5">
+    <button class="close-btn" onclick="closeGallery()">Close</button>
+  </div>
+
+  <section id="education">
+    <img src="7.jpg" alt="Education Image" class="section-image" onclick="openGallery()">
+    <h2>Education & Achievements</h2>
+    <p><strong>School Life:</strong> Grade 12 STEM student at St. Joseph’s Institute, Inc.</p>
+    <p><strong>Achievements:</strong></p>
+    <ul>
+      <li>Consistent honor student</li>
+      <li>Regional Schools Press Conference qualifier (3x)</li>
+      <li>Delegate to 4th Titong Singson Youth Leadership Congress</li>
+      <li>Mobile photography champion</li>
+    </ul>
+    <p><strong>Clubs:</strong> Journalism, Campus Youth Ministry, Drum and Lyre Corps, SJI-an Canticle</p>
+  </section>
+
+  <div class="gallery" id="gallery">
+    <img src="7.jpg" alt="Gallery Image 1">
+    <img src="8.jpg" alt="Gallery Image 2">
+    <img src="9.jpg" alt="Gallery Image 3">
+    <img src="10.jpg" alt="Gallery Image 4">
+    <img src="11.jpg" alt="Gallery Image 5">
+    <button class="close-btn" onclick="closeGallery()">Close</button>
+  </div>
+
+  <section id="goals">
+    <img src="12.jpg" alt="Goals Image" class="section-image">
+    <h2>Future Goals</h2>
+    <p><strong>Short-Term:</strong> Study in UP, UST, or SLU through an accelerated medicine program.</p>
+    <p><strong>Long-Term:</strong></p>
+    <ul>
+      <li>Graduate with Latin honors</li>
+      <li>Pass med school and board exams</li>
+      <li>Become a reliable doctor</li>
+      <li>Give back to my family and community</li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <img src="13.jpg" alt="Skills Image" class="section-image">
+    <h2>Skills & Fun Facts</h2>
+    <p><strong>Skills:</strong></p>
+    <ul>
+      <li>Writing articles, essays, and poems</li>
+      <li>Leadership and teamwork</li>
+      <li>Organization and creativity</li>
+    </ul>
+    <p><strong>Favorite Quote:</strong> “May the flowers remind us why the rain was necessary.”</p>
+    <p><strong>Hidden Talent:</strong> Making people laugh with my laugh!</p>
+  </section>
+
+  <section id="connect">
+    <h2>Connect with Me</h2>
+    <p><strong>Email:</strong> <a href="mailto:abayajadechua@gmail.com">abayajadechua@gmail.com</a></p>
+    <p><strong>Facebook:</strong> <a href="https://www.facebook.com/jaredjade.choa?mibextid=wwXIfr&rdid=smguNmOWZkV1XJJE&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19WaFRe572%2F%3Fmibextid%3DwwXIfr">Jade Abaya</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 The Thought Daughter. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("section");
+  
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("section-visible");
+          } else {
+            entry.target.classList.remove("section-visible");
+          }
+        });
+      }, { threshold: 0.2 });
+  
+      sections.forEach((section) => {
+        section.classList.add("section-hidden");
+        observer.observe(section);
+      });
+    });
+
+    const gallery = document.getElementById("gallery");
+    const imageSets = {
+      about: ["2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"],
+      education: ["7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg"],
+    };
+
+    document.querySelectorAll(".section-image").forEach((image) => {
+      const sectionId = image.closest("section").id;
+
+      if (sectionId === "home" || sectionId === "goals" || sectionId === "skills") {
+        return;
+      }
+
+      image.addEventListener("click", () => {
+
+        gallery.innerHTML = "";
+
+        imageSets[sectionId].forEach((src) => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = `Gallery Image from ${sectionId}`;
+          img.style.objectFit = "cover";
+          img.style.borderRadius = "10px";
+          img.style.margin = "2px";
+          img.style.width = "150px";
+          img.style.height = "150px";
+          gallery.appendChild(img);
+        });
+
+        const closeButton = document.createElement("button");
+        closeButton.textContent = "Close";
+        closeButton.className = "close-btn";
+        closeButton.onclick = closeGallery;
+        gallery.appendChild(closeButton);
+
+        gallery.style.display = "block";
+      });
+    });
+
+  function closeGallery() {
+    document.getElementById("gallery").style.display = "none";
+  }
+  </script>
+</body>
+</html>
